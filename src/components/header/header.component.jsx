@@ -13,12 +13,21 @@ const Header = ({ currentUser }) => (
             <Logo className='logo' />
         </Link>
         <div className='options'>
-            <Link className='option' to='/shop'> SHOP </Link>
-            <Link className='option' to='/contact'> CONTACT </Link>
+            <Link className='option' to='/shop'>
+                SHOP
+             </Link>
+            <Link className='option' to='/contact'>
+                CONTACT
+             </Link>
+            {console.log(currentUser)}
             {currentUser ? (
-                <div className='option' onClick={() => auth.signOut()}>
+                <div className='option' onClick={() => {
+                    console.log(auth.signOut())
+                    return auth.signOut();
+                }}>
                     SIGN OUT
-                </div>) : (
+                </div>
+            ) : (
                     <Link className='option' to='/signin'>
                         SIGN IN
                     </Link>
